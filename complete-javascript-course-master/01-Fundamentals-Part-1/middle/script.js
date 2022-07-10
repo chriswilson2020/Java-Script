@@ -129,9 +129,9 @@ console.log(populationFinland >= populationNow);
 let averagePopulation = 33000000;
 console.log(populationNow <= averagePopulation);
 const description = 'Portugal is in Europe, and its 11M people speak Portugese';
-*/
 
-// Lesson 15 Operator Precedence 
+
+// Lesson 15 Operator Precedence
 
 const now = 2037;
 const ageJonas = now - 1991;
@@ -149,3 +149,46 @@ console.log(x, y);
 
 const averageAge = (ageJonas + ageSarah) / 2
 console.log(ageJonas, ageSarah, averageAge);
+*/
+
+// Coding Challenge Number 1.
+
+// Mark and John are trying to compare their BMI, which is calcluated according to 
+// BMI = mass / height **2 = mass / (height * height) (mass in kg and height in meter)
+
+// Data 1: Mark weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall
+// Data 2: Mark weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1.76 m tall
+
+// Store Mark's and John's mass and height in variables 
+// Calclulate both their BMI's using the formula (you can implement both versions)
+// Create a Boolean variable 'markHeigherBMI' containing information on whether Mark has a higher BMI than John.
+
+let markWeightOne = 78;
+let johnWeightOne = 92;
+
+let markWeightTwo = 95;
+let johnWeightTwo = 85;
+
+let markHeightOne = 1.69;
+let johnHeightOne = 1.95;
+
+let markHeightTwo = 1.88;
+let johnHeightTwo = 1.76;
+
+let markBMIoneOne = (markWeightOne / markHeightOne ** 2);
+let markBMIoneTwo = (markWeightOne / (markHeightOne * markHeightOne));
+
+let johnBMIoneOne = (johnWeightOne / johnHeightOne ** 2);
+let johnBMIoneTwo = (johnWeightOne / (johnHeightOne * johnHeightOne));
+
+let markHeigherBMI = (markBMIoneOne > johnBMIoneOne);
+console.log(markBMIoneOne, johnBMIoneOne, markHeigherBMI);
+
+let markBMItwoOne = (markWeightTwo / markHeightTwo ** 2);
+let markBMItwoTwo = (markWeightTwo / (markHeightTwo * markHeightTwo));
+
+let johnBMItwoOne = (johnWeightTwo / johnHeightTwo ** 2);
+let johnBMItwoTwo = (johnWeightTwo / (johnHeightTwo * johnHeightTwo));
+
+markHeigherBMI = (markBMItwoOne > johnBMItwoOne);
+console.log(markBMItwoTwo, johnBMItwoTwo, markHeigherBMI);
