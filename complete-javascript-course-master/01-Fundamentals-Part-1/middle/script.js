@@ -275,4 +275,63 @@ if (markBMI > johnBMI) {
     console.log(`John's BMI ${johnBMI} is higher than Mark's ${markBMI}`);
 }
 
+
+
+// Lesson 20 Type conversion and Coercion
+
+// Type conversion
+const inputYear = '1991';
+console.log(Number(inputYear) + 18) // converted version but not permanenet inputYear remains as string
+
+// console.log(Number('Jonas')); // cant convert a string to number
+
+console.log(String(23), 23); // convert number to string
+
+// Type corecion
+console.log('I am ' + 23 + ' years old'); // coercion of a number to a string
+console.log('23' - '10' - '3'); // coercion of string to number
+console.log('23' + '10' + '3'); // contatenation happens not coercion with strings and + operator
+console.log('23' * '2'); // coercion happens because the only way that * and / operators can work
+
+let n = '1' + 1 // '11'
+n = n - 1;
+console.log(n);
+
+// Coding Assignment If/else
+
+let populationPortugal = 11;
+let averagePopulation = 33;
+
+if (populationPortugal > averagePopulation) {
+    console.log(`Portugal's population is ${populationPortugal - averagePopulation} M above average`);
+} else {
+    console.log(`Portugal's population is ${averagePopulation - populationPortugal} M below average`);
+}
+
+
+// Lesson 21 Truthy and Falsy values
+
+// 5 falsy valuse: 0, '', undefined, null, NaN
+// anything not a falsy value
+
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean('Jonas'));
+console.log(Boolean({}));
+console.log(Boolean(''));
+
+const money = 100; // change to 0 to see how it works
+
+if (money) {
+    console.log("Don't spend it all :)");
+} else {
+    console.log('You should get a job!');
+}
+
+let height; // what happens if you make this 0 or 123 also remember 0 is a falsy value
+if (height) {
+    console.log('YAY! Heighe is defined');
+} else {
+    console.log('Height is UNDEFINED');
+}
 */
