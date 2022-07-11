@@ -149,7 +149,7 @@ console.log(x, y);
 
 const averageAge = (ageJonas + ageSarah) / 2
 console.log(ageJonas, ageSarah, averageAge);
-*/
+
 
 // Coding Challenge Number 1.
 
@@ -192,3 +192,14 @@ let johnBMItwoTwo = (johnWeightTwo / (johnHeightTwo * johnHeightTwo));
 
 markHeigherBMI = (markBMItwoOne > johnBMItwoOne);
 console.log(markBMItwoTwo, johnBMItwoTwo, markHeigherBMI);
+
+*/
+
+const firstName = 'Jonas';
+const job = 'teacher';
+const birthYear = 1991;
+const year = 2037;
+
+const jonas = "I'm" + firstName + ', a' + (year - birthYear) + ' years old' + job + ' !';
+
+console.log(jonas);
