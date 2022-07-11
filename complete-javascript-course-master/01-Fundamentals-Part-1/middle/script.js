@@ -193,13 +193,86 @@ let johnBMItwoTwo = (johnWeightTwo / (johnHeightTwo * johnHeightTwo));
 markHeigherBMI = (markBMItwoOne > johnBMItwoOne);
 console.log(markBMItwoTwo, johnBMItwoTwo, markHeigherBMI);
 
-*/
+
 
 const firstName = 'Jonas';
 const job = 'teacher';
 const birthYear = 1991;
 const year = 2037;
 
-const jonas = "I'm" + firstName + ', a' + (year - birthYear) + ' years old' + job + ' !';
+const jonas = "I'm " + firstName + ', a ' + (year - birthYear) + ' years old ' + job + '!';
 
 console.log(jonas);
+
+const jonasNew = `I'm ${firstName} a ${year - birthYear} year old ${job}!`;
+
+console.log(jonasNew);
+
+console.log('Just a regular string...')
+
+console.log('String with \n\
+multiple\n\
+lines');
+
+console.log(`String
+mutiple
+lines`);
+
+
+
+// Code assignment 17
+let populationPortugal = 11;
+
+description = `Portugal is in Europe, and its ${populationPortugal} M people speak Portuguese`;
+console.log(description)
+
+
+const age = 15;
+// const isOldEnough = age >= 18;
+
+if (age >= 18) {
+    console.log(`Sarah can start driving licence 🚗`);
+} else { // else block is optional
+    const yearsLeft = 18 - age;
+    console.log(`Sarah is too young. Wait another ${yearsLeft} years`);
+}
+
+const birthYear = 2012;
+
+let century;
+if (birthYear <= 2000) {
+    century = 20;
+} else {
+    century = 21;
+}
+console.log(century);
+
+
+// Coding Challenge 2
+
+// Use the BMI example from Challenge #1, and the code you already wrote, and improve it. 
+
+// Your tasks:
+// 1. Print a nice poutput to the console, ssaying who has the higher BMI. The message is
+//    either "Marks BMI is higher than John's!" or "Johns BMI is higher than Marks!"
+// 2. Use a template literal to include the BMI values in the outputs. Example: "Mark's BMI (28.3) is higher than John's (23.9)!"
+
+// BMI = mass / height **2
+// Data 1: Mark weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall
+
+let markWeight = 78;
+let johnWeight = 92;
+
+let markHeight = 1.69;
+let johnHeight = 1.95
+
+let markBMI = Number(78 / 1.69 ** 2).toFixed(2);
+let johnBMI = Number(92 / 1.95 ** 2).toFixed(2);
+
+if (markBMI > johnBMI) {
+    console.log(`Mark's BMI ${markBMI} is higher than John's ${johnBMI}`);
+} else {
+    console.log(`John's BMI ${johnBMI} is higher than Mark's ${markBMI}`);
+}
+
+*/
