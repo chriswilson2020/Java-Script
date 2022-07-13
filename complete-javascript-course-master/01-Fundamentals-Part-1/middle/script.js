@@ -338,7 +338,7 @@ if (height) {
 
 // Lessson 22 Equality Operators
 
-// strict vs loose 
+// strict vs loose
 //  ===   vs ==
 //  !==   vs !=
 const age = 18;
@@ -360,4 +360,65 @@ if (favourite === 23) {
 }
 
 if (favourite !== 23) console.log('Why not 23?');
+
+
+const numNeighbours = Number(prompt("How many neighbour countries does your country have?"));
+
+if (numNeighbours === 1) {
+    console.log("Only 1 border!");
+} else if (numNeighbours > 1) {
+    console.log("More than 1 border");
+} else {
+    console.log("No borders!")
+}
+
+// Lesson 23 Boolean Logic
+
+const hasDriversLicence = true; // A
+const hasGoodVision = true; // B
+
+console.log(hasDriversLicence && hasGoodVision);
+console.log(hasDriversLicence || hasGoodVision);
+console.log(!hasDriversLicence);
+
+const shouldDrive = hasDriversLicence && hasGoodVision;
+
+if (shouldDrive) {
+    console.log('Sarah is able to drive!');
+} else {
+    console.log('Someone else should drive...');
+}
+
+const isTired = false; // C
+console.log(hasDriversLicence && hasGoodVision && isTired);
+
+if (hasDriversLicence && hasGoodVision && !isTired) {
+    console.log('Sarah is able to drive!');
+} else {
+    console.log('Someone else should drive.....')
+}
+
+
+// Coding assignement for Lesson 24
+// const myCountry = 'Netherlands';
+// const myPopulation = 17.6;
+// const myLanguage = 'Dutch';
+
+const myCountry = prompt("Where do you live?");
+const myPopulation = Number(prompt("What is the population of your country?"));
+const myLanguage = prompt("What language do you speak?");
+
+console.log('Sarah is looking to live in a new country.');
+console.log(`Let's see if your country ${myCountry} speaking ${myLanguage} with a population of ${myPopulation}M people is a good fit`);
+
+const sarahPopulation = 50;
+const sarahLanguage = 'English';
+
+console.log(`Sarah wants to live in a country with a population less than ${sarahPopulation}M people where they speak ${sarahLanguage}`)
+
+if (myLanguage === sarahLanguage && myPopulation < sarahPopulation) {
+    console.log("Yey it's a fit! Sarah will be on the next flight")
+} else {
+    console.log("Awww shucks Sarah's insanely specific neurotic desires don't fit your country, ahh well any way moving on")
+}
 */
