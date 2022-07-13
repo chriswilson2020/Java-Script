@@ -153,13 +153,13 @@ console.log(ageJonas, ageSarah, averageAge);
 
 // Coding Challenge Number 1.
 
-// Mark and John are trying to compare their BMI, which is calcluated according to 
+// Mark and John are trying to compare their BMI, which is calcluated according to
 // BMI = mass / height **2 = mass / (height * height) (mass in kg and height in meter)
 
 // Data 1: Mark weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall
 // Data 2: Mark weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1.76 m tall
 
-// Store Mark's and John's mass and height in variables 
+// Store Mark's and John's mass and height in variables
 // Calclulate both their BMI's using the formula (you can implement both versions)
 // Create a Boolean variable 'markHeigherBMI' containing information on whether Mark has a higher BMI than John.
 
@@ -250,7 +250,7 @@ console.log(century);
 
 // Coding Challenge 2
 
-// Use the BMI example from Challenge #1, and the code you already wrote, and improve it. 
+// Use the BMI example from Challenge #1, and the code you already wrote, and improve it.
 
 // Your tasks:
 // 1. Print a nice poutput to the console, ssaying who has the higher BMI. The message is
@@ -334,4 +334,30 @@ if (height) {
 } else {
     console.log('Height is UNDEFINED');
 }
+
+
+// Lessson 22 Equality Operators
+
+// strict vs loose 
+//  ===   vs ==
+//  !==   vs !=
+const age = 18;
+if (age === 18) console.log('You just became an adult :D (strict)');
+if (age == 18) console.log('You just became and adult :D (loose)')
+
+const favourite = Number(prompt("What's your favourite number?"));
+console.log(favourite);
+console.log(typeof favourite)
+
+if (favourite === 23) {
+    console.log('Cool! 23 is and amazing number!')
+} else if (favourite === 7) {
+    console.log('7 is also a cool number');
+} else if (favourite === 9) {
+    console.log('9 is also a cool number');
+} else {
+    console.log('Number is not 23 or 7 or 9');
+}
+
+if (favourite !== 23) console.log('Why not 23?');
 */
