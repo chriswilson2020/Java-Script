@@ -512,4 +512,50 @@ switch (language) {
     default:
         console.log('Great language too :D')
 }
+
+
+// Lession 28 Statements and Expressions
+
+if (23 > 19) { // if else is a statement
+    const str = '23 is bigger' // const definition is an expression
+}
+
+console.log(`I'm ${2037 - 1981} years old`)
+
+
+const age = 23;
+// age >= 18 ? console.log(`I'd like to drink wine 🍷`) :
+//     console.log('I like to drink water 💧');
+
+const drink = age >= 18 ? 'wine 🍷' : 'water 💧';
+console.log(drink);
+
+let drink2;
+if (age >= 18) {
+    drink2 = 'wine 🍷';
+} else {
+    drink2 = 'water 💧';
+}
+
+console.log(drink2);
+
+console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'water 💧'}`);
+
+// Lesson 28 assignment
+
+const populationPortugal = 130;
+
+console.log(`Portugal's population is ${populationPortugal > 33 ? 'above' : 'below'} average`);
+
+
+// Coding challenge 4
+
+// build a very simple tuip calculator. it's usual to tip 15% when the bill value is between 50 and 300
+// for bills less than 50 and more than 300 tip 20%
+
+const billValue = 430;
+const tip = billValue <= 300 && billValue >= 50 ? billValue * 0.15 : billValue * 0.20;
+
+console.log(`The bill was ${billValue}, the tip was ${tip} and the total value ${billValue + tip}`);
+
 */
