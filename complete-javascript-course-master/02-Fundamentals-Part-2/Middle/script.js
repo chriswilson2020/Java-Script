@@ -514,4 +514,45 @@ if (mark.bmi > john.bmi) {
 } else {
     console.log(`It's a draw`);
 }
+
+// Lesson 46 Itteration with the for loop
+// This is the hard way violating the don't repeat yourself doctoraine
+// console.log('Lifting weights repetition 1');
+// console.log('Lifting weights repetition 2');
+// console.log('Lifting weights repetition 3');
+// console.log('Lifting weights repetition 4');
+// console.log('Lifting weights repetition 5');
+// console.log('Lifting weights repetition 6');
+// console.log('Lifting weights repetition 7');
+// console.log('Lifting weights repetition 8');
+// console.log('Lifting weights repetition 9');
+// console.log('Lifting weights repetition 10');
+
+// for loop keeps running while condition is TRUE
+for (let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition ${rep} 🏋️‍♂️`);
+}
+
+
+// Assignment of for loop
+
+for (let vote = 1; vote <= 50; vote++) {
+    console.log(`Voter number ${vote} is currently voting ✉️`)
+}
+
 */
+
+
+
+const jonasArray = [
+    'jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven']
+
+];
+
+for (let i = 0; i < 5; i++) {
+    console.log(jonasArray[i])
+}
