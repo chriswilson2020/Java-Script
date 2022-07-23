@@ -540,19 +540,171 @@ for (let vote = 1; vote <= 50; vote++) {
     console.log(`Voter number ${vote} is currently voting ✉️`)
 }
 
-*/
-
-
+// Looping Arrays
 
 const jonasArray = [
     'jonas',
     'Schmedtmann',
     2037 - 1991,
     'teacher',
-    ['Michael', 'Peter', 'Steven']
+    ['Michael', 'Peter', 'Steven'],
+    true
 
 ];
+const types = [];
 
-for (let i = 0; i < 5; i++) {
-    console.log(jonasArray[i])
+for (let i = 0; i < jonasArray.length; i++) {
+    // Reading from array
+    console.log(jonasArray[i], typeof jonasArray[i]);
+
+    // Filling types of array
+    // types[i] = typeof jonasArray[i];
+    types.push(typeof jonasArray[i]);
 }
+
+console.log(types);
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+    ages.push(2037 - years[i]);
+}
+console.log(ages);
+
+// Continue & break
+
+console.log('--- Only STRINGS ---');
+for (let i = 0; i < jonasArray.length; i++) {
+    if (typeof jonasArray[i] !== 'string') continue;
+    console.log(jonasArray[i], typeof jonasArray[i]);
+}
+console.log('--- BREAK WITH NUMBER ---');
+for (let i = 0; i < jonasArray.length; i++) {
+    if (typeof jonasArray[i] === 'number') break;
+    console.log(jonasArray[i], typeof jonasArray[i]);
+}
+
+// Assignment Looping Arrays, Breaking and Continuing
+const countryPopulations = [1441, 6, 10.3, 67];
+const percentage2 = [];
+const percentageOfWorld3 = population => ((population / 7900) * 100);
+
+for (let i = 0; i < countryPopulations.length; i++) {
+    percentage2.push(Number(percentageOfWorld3(countryPopulations[i])).toFixed(2));
+}
+
+console.log(percentage2);
+
+
+
+// Lesson 48 Looping backwards and looping in loops
+
+const jonas = [
+    'jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven'],
+];
+
+for (let i = jonas.length - 1; i >= 0; i--) {
+    console.log(i, jonas[i]);
+}
+
+for (let exercise = 1; exercise < 4; exercise++) {
+    console.log(`---Starting exercise ${exercise}`);
+
+    for (let rep = 1; rep < 6; rep++) {
+        console.log(`Exercise ${exercise} Lifting weight repetition ${rep} 🏋️‍♀️`);
+    }
+}
+
+
+const listOfNeighbours = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
+
+// for (let i = 0; i <= listOfNeighbours - 1; i++) {
+//     console.log(`Neighbour`)
+// }
+
+for (let i = 0; i < listOfNeighbours.length; i++) {
+    for (let y = 0; y < listOfNeighbours[i].length; y++) {
+        console.log(`Neighbour: ${listOfNeighbours[i][y]}, ${i} ${y}`);
+    }
+}
+
+
+for (let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
+}
+
+let rep = 1;
+while (rep <= 10) {
+    console.log(`WHILE: Lifting weights repetition ${rep} 🏋️‍♀️`);
+    rep++;
+}
+
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) console.log('Loop is about to end...');
+}
+
+
+ // While loop assignment
+const countryPopulations = [1441, 6, 10.3, 67];
+const percentageOfWorld3 = population => ((population / 7900) * 100);
+const percentages3 = [];
+
+let i = 0;
+while (i < countryPopulations.length) {
+    const perc = percentageOfWorld3(countryPopulations[i]);
+    percentages3.push(perc);
+    console.log(percentages3);
+    i++;
+}
+*/
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+const calcTip = function (bill) {
+    if (bill >= 50 && bill <= 300) {
+        return bill * 0.15;
+    } else {
+        return bill * 0.2;
+    }
+}
+
+// Why doesn't the while loop work???
+
+// let i = 0;
+// while (i < bills.lengh) {
+//     const tip = calcTip(bills[i]);
+//     tips.push(tip);
+//     console.log(tips);
+//     i++;
+// }
+
+for (let i = 0; i < bills.length; i++) {
+    const tip = calcTip(bills[i]);
+    tips.push(tip);
+    const total = tip + bills[i]
+    totals.push(total);
+    // console.log(bills, tips, totals);
+}
+
+const calcAverage = function (arr) {
+    let runningTotal = 0
+    for (let i = 0; i < arr.length; i++) {
+        runningTotal += arr[i];
+        // console.log(runningTotal);
+    }
+    return runningTotal / arr.length
+}
+
+console.log(calcAverage(totals));
