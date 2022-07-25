@@ -153,7 +153,9 @@ const printForecast = function (temps) {
   for (let i = 0; i < temps.length; i++) {
     const curTemp = temps[i];
     if (typeof curTemp !== 'number') continue;
-    tempsString = tempsString.concat(`${temps[i]}ºC in ${i + 1} days ...`);
+    tempsString = tempsString.concat(`${temps[i]}ºC in ${i + 1} days ... `);
+
+    // you can use a += also instead of concat if you want.
   }
 
   return tempsString;
