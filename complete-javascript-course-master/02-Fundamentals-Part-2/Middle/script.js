@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /*
 // Strict mode stops us from making mistakes
 
@@ -673,12 +673,12 @@ const tips = [];
 const totals = [];
 
 const calcTip = function (bill) {
-    if (bill >= 50 && bill <= 300) {
-        return bill * 0.15;
-    } else {
-        return bill * 0.2;
-    }
-}
+  if (bill >= 50 && bill <= 300) {
+    return bill * 0.15;
+  } else {
+    return bill * 0.2;
+  }
+};
 
 // Why doesn't the while loop work???
 
@@ -691,20 +691,20 @@ const calcTip = function (bill) {
 // }
 
 for (let i = 0; i < bills.length; i++) {
-    const tip = calcTip(bills[i]);
-    tips.push(tip);
-    const total = tip + bills[i]
-    totals.push(total);
-    // console.log(bills, tips, totals);
+  const tip = calcTip(bills[i]);
+  tips.push(tip);
+  const total = tip + bills[i];
+  totals.push(total);
+  // console.log(bills, tips, totals);
 }
 
 const calcAverage = function (arr) {
-    let runningTotal = 0
-    for (let i = 0; i < arr.length; i++) {
-        runningTotal += arr[i];
-        // console.log(runningTotal);
-    }
-    return runningTotal / arr.length
-}
+  let runningTotal = 0;
+  for (let i = 0; i < arr.length; i++) {
+    runningTotal += arr[i];
+    // console.log(runningTotal);
+  }
+  return runningTotal / arr.length;
+};
 
 console.log(calcAverage(totals));
