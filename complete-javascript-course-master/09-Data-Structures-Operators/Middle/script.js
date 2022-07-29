@@ -51,6 +51,110 @@ const restaurant = {
 };
 
 /*
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again!'],
+]);
+
+console.log(question);
+
+// convert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+
+console.log(hoursMap);
+
+// Quiz app
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+//const answer = Number(prompt('Your answer'));
+const answer = 3;
+console.log(answer);
+console.log(question.get(question.get('correct') === answer));
+
+// Convert map to
+console.log(...question);
+console.log(...question.entries());
+console.log(...question.keys());
+console.log(...question.values());
+
+/*
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :(');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 21;
+
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+// rest.clear();
+
+const arr = [1, 2];
+rest.set(arr, 'test');
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+console.log(rest.size);
+
+console.log(rest.get(arr));
+
+/*
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+
+console.log(ordersSet);
+
+console.log(new Set('Jonas'));
+
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+// ordersSet.clear();
+console.log(ordersSet);
+for (const order of ordersSet) console.log(order);
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
+
+console.log(new Set('ChristopherJamesWilson').size);
+
+/*
 // Property NAMES
 const properties = Object.keys(openingHours);
 console.log(properties);
@@ -361,7 +465,7 @@ console.log(p, q, r);
  We're building a football betterin app!
  Suppose we get data from a web service about a certain game ('game' variable in the following section). In this challende we're gonna work with that data.
 */
-
+/*
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -453,7 +557,7 @@ Hint: Note how the odds and the game objects have the same property names
   Lewandowski: 2
 }
 */
-
+/*
 // Entire object
 const scorers = Object.entries(game.scored);
 console.log(scorers);
@@ -463,3 +567,39 @@ const odds = Object.values(game.odds);
 for (const [key, value] of scorers) {
   console.log(`Goal ${Number(key) + 1}: Scored by: ${value}`);
 }
+
+console.log(odds);
+let oddsCounter = 0;
+
+for (const odd of [...odds]) {
+  oddsCounter += odd;
+}
+console.log(oddsCounter / odds.length);
+
+// console.log(`Odd of victory Bayern Munich: ${game.odds.team1}
+// Odd of draw: ${game.odds.x}
+// Odd of victory Borrussia Dortmund: ${game.odds.team2}`);
+
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr}: ${odd}`);
+}
+
+// Solution to Bonus Challeng
+/*  
+1. Create an object that will hold the scoringPlayers
+2. Make a for of loop that usees player to itterate over game.scored 
+3. Truncated if statement:
+if player exists in scoringPlyaers then add one to the key player value
+if it doesnt exist then set the value of player key to 1
+*/
+/*
+const scoreingPlayers = {};
+for (const player of game.scored) {
+  scoreingPlayers[player]
+    ? scoreingPlayers[player]++
+    : (scoreingPlayers[player] = 1);
+}
+
+console.log(scoreingPlayers);
+*/
