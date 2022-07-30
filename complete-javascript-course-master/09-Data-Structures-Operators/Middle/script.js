@@ -1,5 +1,23 @@
 'use strict';
+// Data needed for a later exercise
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+//console.log(flights.split('+'));
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? '🔴' : ''} ${type.replaceAll(
+    '_',
+    ' '
+  )} ${getCode(from)} to ${getCode(to)} (${time.replace(':', 'h')})`.padStart(
+    40
+  );
+  console.log(output);
+}
+/*
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 const openingHours = {
@@ -78,6 +96,8 @@ The solution only needs to work for a veriable made out of 2 words, like a_b
 Start without worrying about the ✅. Tackle that only after you have the variable name conversion working
 This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue. 
 */
+
+/*
 let variables2;
 
 document.body.append(document.createElement('textarea'));
@@ -102,7 +122,7 @@ document.querySelector('button').addEventListener('click', function () {
 const fixVariables = function (vars) {
   let combined = {};
   for (var [key, value] of Object.entries(vars)) {
-    value = value.toLowerCase();
+    value = value.toLowerCase().trim();
     let firstValue = value.slice(0, value.indexOf('_'));
     let secondValue =
       value[value.indexOf('_') + 1].toUpperCase() +
