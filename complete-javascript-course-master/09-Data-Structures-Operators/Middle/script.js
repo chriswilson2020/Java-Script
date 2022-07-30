@@ -50,6 +50,317 @@ const restaurant = {
   },
 };
 
+///////////////////////////////////
+// Codingerted Challenge #4
+
+/*
+Write a program that recieves a list of variable names written in underscore_case and convert them to camelCase. 
+
+The input will come from a textarea inserted into the DOM (see code below to insert the elements), and conversion will happen when the button is pressed.
+
+TEST DATA (Pasted to textarea, including spaces):
+underscore_case
+first_name
+Some_Variable
+calculate_AGE
+delayed_departure
+
+Should produce this output (5 separate console.log outputs):
+underscoreCase ✅
+firstName ✅✅
+someVariable ✅✅✅
+calculateAge ✅✅✅✅
+delayedDeparture ✅✅✅✅✅
+
+Hints:
+Remember which character defines a new line in the textarea
+The solution only needs to work for a veriable made out of 2 words, like a_b
+Start without worrying about the ✅. Tackle that only after you have the variable name conversion working
+This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue. 
+*/
+let variables2;
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').style.width = '200px';
+document.querySelector('button').textContent = 'Button';
+document.querySelector('button').addEventListener('click', function () {
+  //variables = document.querySelector('textarea').value;
+  if (document.querySelector('textarea').value.length === 0) {
+    console.log('Please input some data');
+  } else {
+    variables2 = document.querySelector('textarea').value.split('\n');
+    let fixedVariables2 = fixVariables(variables2);
+    let test2 = outputVariables(fixedVariables2);
+    for (const [key, value] of Object.entries(test2)) {
+      console.log(`${value}`);
+    }
+  }
+});
+
+const fixVariables = function (vars) {
+  let combined = {};
+  for (var [key, value] of Object.entries(vars)) {
+    value = value.toLowerCase();
+    let firstValue = value.slice(0, value.indexOf('_'));
+    let secondValue =
+      value[value.indexOf('_') + 1].toUpperCase() +
+      value.slice([value.indexOf('_') + 2]);
+    // console.log(value.slice(0, value.indexOf('_'))) +
+    //   value[value.indexOf('_') + 1].toUpperCase() +
+    //   value.slice([value.indexOf('_') + 2]);
+    combined[key] = firstValue + secondValue;
+  }
+  return combined;
+};
+
+const outputVariables = function (vars) {
+  let combined = {};
+  let intermediate;
+  for (let [key, value] of Object.entries(vars)) {
+    let keys = Number(key);
+    intermediate = '✅'.repeat(keys + 1);
+    combined[key] = `${value.padEnd(18, ' ')} ${intermediate}`;
+  }
+  return combined;
+};
+
+// const variables = {
+//   1: 'underscore_case',
+//   2: 'first_name',
+//   3: 'Some_Variable',
+//   4: 'calculate_AGE',
+//   5: 'delayed_departure',
+// };
+
+// console.log(variables2);
+
+//let fixedVariables = fixVariables(variables);
+//console.log(fixedVariables);
+
+// let test = outputVariables(fixedVariables);
+// for (const [key, value] of Object.entries(test)) {
+//   console.log(`${value}`);
+// }
+
+/*
+// Split and join
+console.log('a+very+nice+string'.split('+'));
+console.log('Jonas Schmedtmann'.split(' '));
+
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+
+const newName = ['Mr', firstName, lastName.toUpperCase()].join(' ');
+
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    //namesUpper.push(n[0].toUpperCase() + n.slice(1));
+
+    // different approach using replace
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizeName('jessica ann smith davis');
+capitalizeName('jonas schmedtmann');
+
+// Padding
+
+const message = 'Go to gate 23!';
+console.log(message.padStart(20, '+').padEnd(30, '+'));
+console.log('Jonas'.padStart(25, '+'));
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(64637836));
+console.log(maskCreditCard(43378463864647384));
+console.log(maskCreditCard('334859493847755774747'));
+
+// Repeat
+const message2 = 'Bad weather... All Departues Delayed... ';
+
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'🛩 '.repeat(n)}`);
+};
+
+planesInLine(5);
+planesInLine(3);
+planesInLine(12);
+
+/*
+const airline = 'TAP Air Portugal';
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// Fix capitalisation in name
+
+const passenger = 'jOnAS'; // Jonas
+
+const correctName = function (name) {
+  const passengerLower = name.toLowerCase();
+  return passengerLower[0].toUpperCase() + passengerLower.slice(1);
+};
+console.log(correctName(passenger));
+console.log(correctName('cHrIsToPhER'));
+
+// Comparing emails
+
+const email = 'hello@jonas.io';
+const loginEmail = '   Hello@Jonas.Io  \n';
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+
+// Condensed into a single line
+const checkEmails = function (email, login) {
+  const normalizedEmail = login.toLowerCase().trim();
+  return email === normalizedEmail;
+};
+
+console.log(checkEmails(email, loginEmail));
+
+// replacing
+const priceEU = '288,97€';
+const priceUS = priceEU.replace('€', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcement.replace('door', 'gate'));
+// Soon replaceAll will come
+//console.log(announcement.replaceAll('door', 'gate'));
+console.log(announcement.replace(/door/g, 'gate'));
+
+// Booleans
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A320'));
+console.log(plane.includes('Boeing'));
+console.log(plane.includes('Airb'));
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+}
+
+// Practice exercise
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+
+/*
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log(plane[3]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Portugal'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+// first word
+console.log(airline.slice(0, airline.indexOf(' ')));
+// last word
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') {
+    console.log('You got the middle seat 😁');
+  } else {
+    console.log('You got lucky 😎');
+  }
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('jonas'));
+console.log(typeof new String('jonas'));
+
+console.log(typeof new String('jonas').slice(4));
+
+/////////////////////////////////////
+// Coding Challenge #3
+
+/*Lets continue with our football betting app! This time, we have a map called 'gameEvents' with a log of the events that happened during the game.  The values are the events and the keys are the minutes in which each event happened (football games have 90 minutes plus some extra time)
+
+TASKS
+1. Create an array 'events' of the different game events that happened (no duplicates)
+
+2. After the game has finished, it was found that the yelllow card from minute 64 was unfair. So remove this event from the game events log.
+
+3. Compute and lof the following string to the console: "An event happened, on average, every 9 minutes" Keep in mind that a gaem has 90 minutes
+
+4. Loop over 'gameEvents' and log each element to the console, marking whether it's  in the first half or second half of the game like this:
+[FIRST HALF] 17: GOAL
+*/
+/*
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+const gameEventSet = new Set([...gameEvents.values()]);
+gameEvents.delete(64);
+
+console.log(
+  `An event happened, on average, every ${90 / gameEvents.size} minutes.`
+);
+
+const firstHalf = 'FIRST HALF';
+const secondHalf = 'SECOND HALF';
+for (let [key, value] of gameEvents) {
+  console.log(`[${key < 45 ? firstHalf : secondHalf}] ${key}: ${value}`);
+}
+
 /*
 const question = new Map([
   ['question', 'What is the best programming language in the world?'],
